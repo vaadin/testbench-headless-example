@@ -1,14 +1,13 @@
-Addressbook Tutorial
-====================
+Headless TestBench
+==================
 
-This tutorial teaches you some of the basic concepts in Vaadin Framework. It is meant to be 
-a fast read for learning how to get started - not an example on how application should be
-designed.
+This is an example project accompanying the blog post at http://vaadin.com/blog.
+It is based on the Addressbook Tutorial found at http://vaadin.com/tutorial
 
 
-Running the example
--------------------
-mvn jetty:run
+Running the example test
+------------------------
+    mvn verify
 
 
 Importing in Eclipse
