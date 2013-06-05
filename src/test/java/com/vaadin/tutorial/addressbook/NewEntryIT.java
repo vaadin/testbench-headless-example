@@ -1,5 +1,6 @@
 package com.vaadin.tutorial.addressbook;
 
+import com.vaadin.testbench.Parameters;
 import com.vaadin.testbench.ScreenshotOnFailureRule;
 import com.vaadin.testbench.TestBench;
 import com.vaadin.testbench.TestBenchTestCase;
@@ -35,6 +36,7 @@ public class NewEntryIT extends TestBenchTestCase {
         // Uncomment the FirefoxDriver line below to run with Firefox
 		setDriver(TestBench.createDriver(new PhantomJSDriver(DesiredCapabilities.phantomjs())));
 //        setDriver(TestBench.createDriver(new FirefoxDriver()));
+        Parameters.setScreenshotErrorDirectory("target/testbench/errors");
         testBench().resizeViewPortTo(1024, 768);
 	}
 	
