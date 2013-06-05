@@ -1,10 +1,12 @@
 package com.vaadin.tutorial.addressbook;
 
+import com.vaadin.testbench.ScreenshotOnFailureRule;
 import com.vaadin.testbench.TestBench;
 import com.vaadin.testbench.TestBenchTestCase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,18 +24,20 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  */
 public class NewEntryIT extends TestBenchTestCase {
 
+    /**
+     * Grabs a screenshot whenever a test fails and quits the driver after the test.
+     */
+    @Rule
+    public ScreenshotOnFailureRule screenshotOnFailure = new ScreenshotOnFailureRule(this, true);
+
 	@Before
 	public void setUp() {
         // Uncomment the FirefoxDriver line below to run with Firefox
-		driver = TestBench.createDriver(new PhantomJSDriver(DesiredCapabilities.phantomjs()));
-//        driver = TestBench.createDriver(new FirefoxDriver());
+		setDriver(TestBench.createDriver(new PhantomJSDriver(DesiredCapabilities.phantomjs())));
+//        setDriver(TestBench.createDriver(new FirefoxDriver()));
+        testBench().resizeViewPortTo(1024, 768);
 	}
 	
-	@After
-	public void tearDown() {
-		driver.quit();
-	}
-
 	@Test
 	public void testEnterNewContact() throws InterruptedException {
 		driver.get("http://localhost:8080/?restartApplication");
